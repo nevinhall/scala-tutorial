@@ -13,6 +13,12 @@ object Lists {
   }
 
 
+  def noElements[A](list: List[A]) : Int = list match {
+    case Nil => 0 // empty list
+    case _ :: tail => 1 + noElements(tail)  // more than one element
+
+  }
+
 }
 
 
