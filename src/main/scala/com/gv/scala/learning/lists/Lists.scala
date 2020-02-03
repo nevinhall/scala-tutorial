@@ -2,7 +2,7 @@ package com.gv.scala.learning.lists
 
 import scala.annotation.tailrec
 
-object Lists {
+object Lists extends App{
 
   @tailrec
   def last[A](list: List[A]): A = list match {
@@ -19,8 +19,23 @@ object Lists {
 
   }
 
+  def isPalindrome[A](list: List[A]) : Boolean = list match {
+    case Nil => false // empty list
+    case head :: Nil => true  // one element in list
+    case head +:newList:+ last =>
+      if(head == last) {
+        isPalindrome(newList)
+        println("true")
+        true
+      }else
+        print("false")
+        false
+  }
 
+  isPalindrome(List(1,2,3,2,2))
 
 }
+
+
 
 
