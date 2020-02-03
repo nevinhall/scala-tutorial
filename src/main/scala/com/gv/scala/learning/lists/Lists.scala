@@ -23,14 +23,18 @@ object Lists extends App{
     case Nil => false // empty list
     case head :: Nil => true  // one element in list
     case head +:newList:+ last =>
-      if(head == last) {
+      if(head == last && newList.isEmpty == false) {
         isPalindrome(newList)
-        println("true")
+      }else if(head == last && newList.isEmpty){
         true
-      }else
-        print("false")
+      }else{
         false
+      }
+
   }
+
+
+
 
   isPalindrome(List(1,2,3,2,2))
 

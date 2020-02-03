@@ -21,5 +21,33 @@ class ListsTest extends AnyWordSpec {
       }
     }
   }
-}
+  "A palindrome list" when {
+    "contains a single element" should {
+      "return true" in {
+        assertResult(true)(Lists.isPalindrome(1 :: Nil))
+      }
+    }
+      "when there is two elements and they are eqaul" should{
+        "return true" in {
+          assertResult(true)(Lists.isPalindrome(List(1,1)))
+        }
+      }
+    "when there is two elements and they are not eqaul" should{
+      "return false" in {
+        assertResult(false)(Lists.isPalindrome(List(1,2)))
+      }
+    }
+    "when there is more than two elements and they are not eqaul" should{
+      "return false" in {
+        assertResult(false)(Lists.isPalindrome(List(1,2,3,1,3)))
+      }
+    }
+    "when there is more than two elements and they are ` eqaul" should{
+      "return false" in {
+        assertResult(true)(Lists.isPalindrome(List(1,2,3,2,1)))
+      }
+    }
+    }
+  }
+
 
