@@ -27,30 +27,39 @@ class ListsTest extends AnyWordSpec {
         assertResult(true)(Lists.isPalindrome(1 :: Nil))
       }
     }
-      "when there is two elements and they are eqaul" should{
-        "return true" in {
-          assertResult(true)(Lists.isPalindrome(List(1,1)))
-        }
+    "when there is two elements and they are eqaul" should {
+      "return true" in {
+        assertResult(true)(Lists.isPalindrome(List(1, 1)))
       }
-    "when there is two elements and they are not eqaul" should{
+    }
+    "when there is two elements and they are not eqaul" should {
       "return false" in {
-        assertResult(false)(Lists.isPalindrome(List(1,2)))
+        assertResult(false)(Lists.isPalindrome(List(1, 2)))
       }
     }
-    "when there is more than two elements and they are not eqaul" should{
+    "when there is more than two elements and they are not eqaul" should {
       "return false" in {
-        assertResult(false)(Lists.isPalindrome(List(1,2,3,1,3)))
+        assertResult(false)(Lists.isPalindrome(List(1, 2, 3, 1, 3)))
       }
     }
-    "when there is more than two elements and they are ` eqaul" should{
+    "when there is more than two elements and they are ` eqaul" should {
       "return false" in {
-        assertResult(true)(Lists.isPalindrome(List(1,2,3,2,1)))
+        assertResult(true)(Lists.isPalindrome(List(1, 2, 3, 2, 1)))
       }
-    }
-    }
-    "when there is a nested head" should{
-      "return "
     }
   }
+  "is flattened" should {
+    "return an empty list if empty" in {
+      assertResult(List())(Lists.flattenStruct((List())))
+    }
+    "return a unflattened list" in {
+      assertResult(List(1, 2, 3))(Lists.flattenStruct((List(1, List(2, List(3))))))
+      assertResult(List(1, 2, 3))(Lists.flattenStruct((List(List(1, List(2, List(3)))))))
+      assertResult(Nil)(Lists.flattenStruct((List(List(List())))))
+    }
+  }
+
+
+}
 
 
