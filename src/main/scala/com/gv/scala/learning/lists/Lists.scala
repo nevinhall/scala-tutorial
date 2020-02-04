@@ -36,12 +36,16 @@ object Lists extends App{
   val potList = List[Any]()
 
   @tailrec
+  /** Flattens a possible nested list
+   * @param  list possible nested list, with elements of any type
+   * @return a flat list, with all elements of the nested argument in the same order
+   * */
   def flattenStruct(list: List[Any]) : List[Any] = list  match{
-    case Nil => list
+    case Nil => Nil
     case _ :: tail => potList match {
       case head: List[Any]  =>
         head :+ tail
-      case head if(head != List[Any])=>
+      case _ =>
         flattenStruct(tail)
     }
   }

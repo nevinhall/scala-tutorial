@@ -48,6 +48,9 @@ class ListsTest extends AnyWordSpec {
       }
     }
     }
+    "when there is a nested head" should{
+      "return "
+    }
   }
 
 
