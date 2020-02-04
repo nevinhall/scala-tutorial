@@ -33,10 +33,24 @@ object Lists extends App{
 
   }
 
+  val potList = List[Any]()
+
+  @tailrec
+  def flattenStruct(list: List[Any]) : List[Any] = list  match{
+    case Nil => list
+    case _ :: tail => potList match {
+      case head: List[Any]  =>
+        head :+ tail
+      case head if(head != List[Any])=>
+        flattenStruct(tail)
+    }
+  }
 
 
 
-  isPalindrome(List(1,2,3,2,2))
+
+  flattenStruct(List(List(1),2))
+  //isPalindrome(List(1,2,3,2,2))
 
 }
 
