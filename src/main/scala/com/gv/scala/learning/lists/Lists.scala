@@ -34,62 +34,6 @@ object Lists extends App{
 
   val potList = List[Any]()
 
-<<<<<<< HEAD
-//  @tailrec
-//  /** Flattens a possible nested list
-//   * @param  list possible nested list, with elements of any type
-//   * @return a flat list, with all elements of the nested argument in the same order
-//   * */
-//  def flattenStruct(list: List[Any]) : List[Any] = list  match{
-//    case Nil => Nil
-//    case headb:: tail => list match {
-//      case head: list  =>
-//        head + tail
-//      case _ =>
-//        flattenStruct(tail)
-//    }
-//  }
-
-//  def packChar[A](list: List[A]) : List[List[A]] = list  match{
-//    case Nil => Nil
-//    case head :: tail =>  compareLists(List(List(head)),tail)
-//  }
-
-//  def compareLists[A](tempList: List[List[A]] , remList: List[A]) : List[List[A]] = remList match {
-//    case firstTailElement :: if(firstTailElement.head == tempList.head) => compareLists(List(tempList :+ firstTailElement.head),remList)
-//
-//      //1. get the first element add it to a list
-//      //2. with the previous list made, we want to check if element 0 is equl to the first element in the tail
-//          //if true:
-//                  // we need to append the first list to include the new element, then re- run compare method with new lists
-//          //if false
-//                // seperate remlist into head and tail and pass into compare method
-//
-//  }
-
-  //@scala.annotation.tailrec
-  def dupList[A](list: List[A]): List[A] = list match{
-    case Nil => Nil
-    case ele1 :: tail => ele1 match {
-      case ele2 :: tail => if(ele2 == ele1){ dupList(tail)}
-      case _ => ele1 +: list
-=======
-  @tailrec
-  def flattenStruct(list: List[Any]) : List[Any] = list  match{
-    case Nil => list
-    case _ :: tail => potList match {
-      case head: List[Any]  =>
-        head :+ tail
-      case head if(head != List[Any])=>
-        flattenStruct(tail)
->>>>>>> parent of b094b4e... update flattenStruct
-    }
-    case _ => list
-gi
-
-
-  }
-
 
 
 
