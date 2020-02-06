@@ -52,7 +52,10 @@ class ListsTest extends AnyWordSpec {
         assertResult(List('a','a','b','b','c','c'))(Lists.dupList(List('a','b','c')))
       }
     }
+<<<<<<< HEAD
 
+=======
+>>>>>>> parent of b094b4e... update flattenStruct
   }
 //  "is flattened" should {
 //    "return an empty list if empty" in {

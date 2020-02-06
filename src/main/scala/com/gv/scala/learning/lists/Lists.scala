@@ -34,6 +34,7 @@ object Lists extends App{
 
   val potList = List[Any]()
 
+<<<<<<< HEAD
 //  @tailrec
 //  /** Flattens a possible nested list
 //   * @param  list possible nested list, with elements of any type
@@ -72,9 +73,19 @@ object Lists extends App{
     case ele1 :: tail => ele1 match {
       case ele2 :: tail => if(ele2 == ele1){ dupList(tail)}
       case _ => ele1 +: list
+=======
+  @tailrec
+  def flattenStruct(list: List[Any]) : List[Any] = list  match{
+    case Nil => list
+    case _ :: tail => potList match {
+      case head: List[Any]  =>
+        head :+ tail
+      case head if(head != List[Any])=>
+        flattenStruct(tail)
+>>>>>>> parent of b094b4e... update flattenStruct
     }
     case _ => list
-
+gi
 
 
   }
