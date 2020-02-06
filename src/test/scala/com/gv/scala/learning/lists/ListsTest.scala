@@ -47,17 +47,58 @@ class ListsTest extends AnyWordSpec {
         assertResult(true)(Lists.isPalindrome(List(1, 2, 3, 2, 1)))
       }
     }
-  }
-  "is flattened" should {
-    "return an empty list if empty" in {
-      assertResult(List())(Lists.flattenStruct((List())))
+    "when given unique characters " should{
+      "return duplicates" in {
+        assertResult(List('a','a','b','b','c','c'))(Lists.dupList(List('a','b','c')))
+      }
     }
-    "return a unflattened list" in {
-      assertResult(List(1, 2, 3))(Lists.flattenStruct((List(1, List(2, List(3))))))
-      assertResult(List(1, 2, 3))(Lists.flattenStruct((List(List(1, List(2, List(3)))))))
-      assertResult(Nil)(Lists.flattenStruct((List(List(List())))))
-    }
+
   }
+//  "is flattened" should {
+//    "return an empty list if empty" in {
+//      assertResult(List())(Lists.flattenStruct((List())))
+//    }
+//    "return a unflattened list" in {
+//      assertResult(List(1, 2, 3))(Lists.flattenStruct((List(1, List(2, List(3))))))
+//      assertResult(List(1, 2, 3))(Lists.flattenStruct((List(List(1, List(2, List(3)))))))
+//      assertResult(Nil)(Lists.flattenStruct((List(List(List())))))
+//    }
+//  }
+
+//  "char packed" should {
+//    "return an empty list if empty" in {
+//      assertResult(List())(Lists.packChar((List())))
+//    }
+//    "return multiple list" in {
+//      assertResult(List(List('a'), List('b'), List('c')))(Lists.packChar(List('a','b','c')))
+//
+//    }
+//    "return one list with multiple of the same char  " in {
+//      assertResult(List('a','a'))(Lists.compareLists(List('a'),List('a','b','a')))
+//
+//    }
+//  }
+//  "A list of symbols" when {
+//    "full" should {
+//      "return a packed list" in {
+//        assertResult(
+//          List(List('a, 'a, 'a, 'a), List('b), List('c, 'c), List('a, 'a), List('d), List('e, 'e, 'e, 'e))
+//        )(
+//          Lists.packChar(List('a, 'a, 'a, 'a, 'b, 'c, 'c, 'a, 'a, 'd, 'e, 'e, 'e, 'e))
+//        )
+//      }
+//    }
+//    "empty" should {
+//      "return an empty list" in {
+//        assert(Lists.packChar(List()).isEmpty)
+//      }
+//    }
+//  }
+
+
+
+
+
 
 
 }
