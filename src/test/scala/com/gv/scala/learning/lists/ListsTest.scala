@@ -20,6 +20,13 @@ class ListsTest extends AnyWordSpec {
         assertThrows[NoSuchElementException](Lists.last(List()))
       }
     }
+    "given an n value and list" should{
+      "return a tuple containining a list of size n and the remainder of the list" in {
+        assertResult((List(1,2,3),List(4,5)))(Lists.splitList(3,List(1,2,3,4,5)))
+      }
+    }
+
+
   }
   "A palindrome list" when {
     "contains a single element" should {
@@ -52,6 +59,7 @@ class ListsTest extends AnyWordSpec {
         assertResult(List('a','a','b','b','c','c'))(Lists.dupList(List('a','b','c')))
       }
     }
+
 
   }
 //  "is flattened" should {
