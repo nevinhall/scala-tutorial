@@ -24,7 +24,12 @@ class ListsTest extends AnyWordSpec {
       "return a tuple containining a list of size n and the remainder of the list" in {
         assertResult((List(1,2,3),List(4,5)))(Lists.splitList(3,List(1,2,3,4,5)))
       }
+      "return a a list minus the nth element and the nth element" in{
+        assertResult(((List(1,2,3,5),4)))(Lists.remAtK(List(1,2,3,4,5),3))
+
+      }
     }
+
 
 
   }

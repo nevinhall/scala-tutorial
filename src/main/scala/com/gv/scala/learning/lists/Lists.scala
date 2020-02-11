@@ -56,12 +56,27 @@ object Lists extends App {
     case 0 => (List(), list)
     case x if (x < 0) => (List(), list)
     case _ => splitList(numListElements - 1, list.tail) match {
-      case (left , right) ifright.isEmpty => (list.take(numListElements),left)
+      case (left , right) if(right.size == 0) => (list.take(numListElements),left)
       case (left, right) => (( left :+ right.head), right.tail)
 
 
     }
   }
+
+def remAtK[A](list: List[A], remIndex: Int): (List[A], Any) = list match {
+  case Nil => (List(), 0)
+  case head :: tail if(list.size != remIndex)  => remAtK(tail,remIndex)match {
+    case (x, head :: rem) if(list.size == remIndex)  => (list.take(list.size - remIndex) ++ rem, x.head)
+  }
+
+}
+
+
+
+
+
+
+
 
 
   //  flattenStruct(List(List(1),2))
